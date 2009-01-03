@@ -1,15 +1,18 @@
 Source: embryo
-Section: libs
+Section: core
 Priority: optional
-Maintainer: Falko Schmidt <falko@alphagemini.org>
+Maintainer: Alexander Kerner <lunohod@openinkpot.org>
 Build-Depends: debhelper (>= 6), cdbs, doxygen
 Standards-Version: 3.7.3
 Homepage: http://www.enlightenment.org
+XCS-Cross-Host-Build-Depends: debhelper (>= 5), cdbs
+XS-Vcs-Git: http://git.openinkpot.org/embryo.git
+XS-Vcs-Browser: http://git.openinkpot.org/embryo.git
 
 Package: libembryo-dev
 Section: libdevel
 Architecture: any
-Depends: libembryo0 (= ${Source-Version}), pkg-config
+Depends: libembryo0 (= ${Source-Version})
 Description: Development files for libembryo
  Embryo is primarily a shared library that gives you an API to load
  and control interpreted programs compiled into an abstract machine
@@ -41,22 +44,9 @@ Description: SMALL-based abstract machine (AMX) bytecode interpreter
  .
  See also http://www.compuphase.com/small.htm for details on SMALL.
 
-Package: libembryo-doc
-Section: doc
-Architecture: all
-Enhances: libembryo-dev
-Description: libembryo0 development documentation
- Embryo is primarily a shared library that gives you an API to load
- and control interpreted programs compiled into an abstract machine
- bytecode that it understands.  This abstract (or virtual) machine is
- similar to a real machine with a CPU, but it is emulated in
- software.
- .
- This packages provides development documentation for Embryo.
-
 Package: libembryo-dbg
 Architecture: any
-Section: libdevel
+Section: debug
 Depends: libembryo0 (= ${binary:Version})
 Priority: extra
 Description: SMALL-based abstract machine (AMX) bytecode interpreter
@@ -72,7 +62,7 @@ Description: SMALL-based abstract machine (AMX) bytecode interpreter
  /usr/lib/debug and are automatically used by gdb.
 
 Package: libembryo-bin
-Section: devel
+Section: core
 Architecture: any
 Depends: ${shlibs:Depends}
 Description: SMALL compiler creating Embryo bytecode
