@@ -1,3 +1,11 @@
+embryo (0.9.9.050-20090103-2) asimov; urgency=low
+
+  * First IPlinux build
+  * unstable -> asimov
+  * added cdbs-embedded dependency
+
+ -- Alexander Kerner <lunohod@openinkpot.org>  Sun, 15 Mar 2009 02:52:01 +0100
+
 embryo (0.9.9.050-20090103-1) unstable; urgency=low
 
   * OI build
