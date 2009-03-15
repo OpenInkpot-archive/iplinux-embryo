@@ -2,12 +2,13 @@ Source: embryo
 Section: core
 Priority: optional
 Maintainer: Alexander Kerner <lunohod@openinkpot.org>
-Build-Depends: debhelper (>= 6), cdbs, doxygen
+Build-Depends: debhelper (>= 6), cdbs, cdbs-embedded, doxygen
 Standards-Version: 3.7.3
 Homepage: http://www.enlightenment.org
-XCS-Cross-Host-Build-Depends: debhelper (>= 5), cdbs
+XCS-Cross-Host-Build-Depends: debhelper (>= 5), cdbs, cdbs-embedded
 XS-Vcs-Git: http://git.openinkpot.org/embryo.git
 XS-Vcs-Browser: http://git.openinkpot.org/embryo.git
+Format: 3.0 (native)
 
 Package: libembryo-dev
 Section: libdevel
