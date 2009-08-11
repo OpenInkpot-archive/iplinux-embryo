@@ -4,10 +4,12 @@ include /usr/share/cdbs/1/class/autotools.mk
 include /usr/share/cdbs/1/rules/debhelper.mk
 
 DEB_DH_STRIP_ARGS := --dbg-package=libembryo-dbg
-DEB_CONFIGURE_EXTRA_FLAGS := --disable-rpath --host=$(DEB_HOST_GNU_TYPE) 
-DEB_MAKE_CLEAN_TARGET := clean
-DEB_SOURCE_VERSION := $(shell grep AC_INIT $(DEB_SRCDIR)/configure.ac|sed -e 's/AC_INIT(\[embryo\],\ \[\(.*\)\],\ \[.*@.*\])/\1/g')
+DEB_CONFIGURE_EXTRA_FLAGS := --disable-rpath --host=$(DEB_HOST_GNU_TYPE)
+DEB_CONFIGURE_SCRIPT := ./autogen.sh
+DEB_MAKE_CLEAN_TARGET := distclean
 CFLAGS += -fvisibility=hidden
+LDFLAGS += -fvisibility=hidden
 
 clean::
-	./autogen.sh --prefix=/usr $(DEB_CONFIGURE_EXTRA_FLAGS)
+	[ ! -f Makefile ] || make distclean
+	rm -f embryo-*.tar.* embryo-*.cdbs-config_list

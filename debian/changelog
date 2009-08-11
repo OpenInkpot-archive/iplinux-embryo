@@ -1,3 +1,9 @@
+embryo (0.9.9.062-1) asimov; urgency=low
+
+  * svn-03
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Wed, 12 Aug 2009 02:12:10 +0700
+
 embryo (0.9.9.050-20090103-2+b1) asimov; urgency=low
 
   * Rebuild with new toolchain.
@@ -19,14 +25,16 @@ embryo (0.9.9.050-20090103-1) unstable; urgency=low
  -- Alexander Kerner <lunohod@openinkpot.org>  Sat, 03 Jan 2009 23:55:44 +0100
 
 embryo (0.9.9.050-1) unstable; urgency=low
+=======
+embryo (0.9.9.060+svnYYYYMMDD-1) unstable; urgency=low
+>>>>>>> svn-03:debian/changelog
 
-  * a SVN release.
+  * Clean up changelog
 
- -- quaker <quaker66@gmail.com>  Fri, 26 Dec 2008 13:38:56 +0100
+ -- quaker <quaker66@gmail.com>  Thu, 22 Apr 2009 19:26:08 +0100
 
-embryo (0.9.9.043-1) unstable; urgency=low
+embryo (0.9.9.050+svnYYYYMMDD-1) unstable; urgency=low
 
-  * a CVS snapshot release.
+  * Clean up changelog
 
- -- Falko Schmidt <falko@alphagemini.org>  Fri, 4 Apr 2008 15:13:56 +0000
-
+ -- quaker <quaker66@gmail.com>  Tue, 21 Apr 2009 19:15:09 +0100

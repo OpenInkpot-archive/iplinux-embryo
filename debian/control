@@ -2,19 +2,19 @@ Source: embryo
 Section: core
 Priority: optional
 Maintainer: Alexander Kerner <lunohod@openinkpot.org>
-Build-Depends: debhelper (>= 6), cdbs, cdbs-embedded, automake, libtool, pkg-config
-Standards-Version: 3.7.3
+Uploaders: Mikhail Gusarov <dottedmag@dottedmag.net>
+Build-Depends: debhelper (>= 6), cdbs, automake, pkg-config, libtool
+Standards-Version: 3.8.2
 Homepage: http://www.enlightenment.org
-XCS-Cross-Host-Build-Depends: debhelper (>= 5), cdbs, cdbs-embedded, automake, libtool, pkg-config
-XS-Vcs-Git: http://git.openinkpot.org/embryo.git
-XS-Vcs-Browser: http://git.openinkpot.org/embryo.git
-Format: 3.0 (native)
+XCS-Cross-Host-Build-Depends: debhelper (>= 6), cdbs, cdbs-embedded, automake, pkg-config, libtool
+XS-Vcs-Git: http://git.iplinux.org/embryo.git
+XS-Vcs-Browser: http://git.iplinux.org/embryo.git
 
 Package: libembryo-dev
 Section: libdevel
 Architecture: any
-Depends: libembryo0 (= ${Source-Version})
-Description: Development files for libembryo
+Depends: ${misc:Depends}, libembryo0 (= ${binary:Version})
+Description: Development files for libembryo0
  Embryo is primarily a shared library that gives you an API to load
  and control interpreted programs compiled into an abstract machine
  bytecode that it understands.  This abstract (or virtual) machine is
@@ -25,8 +25,7 @@ Description: Development files for libembryo
 
 Package: libembryo0
 Architecture: any
-Provides: libembryo
-Depends: ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: libembryo-bin
 Description: SMALL-based abstract machine (AMX) bytecode interpreter
  Embryo is primarily a shared library that gives you an API to load
@@ -48,9 +47,9 @@ Description: SMALL-based abstract machine (AMX) bytecode interpreter
 Package: libembryo-dbg
 Architecture: any
 Section: debug
-Depends: libembryo0 (= ${binary:Version})
+Depends: ${misc:Depends}, libembryo0 (= ${binary:Version})
 Priority: extra
-Description: SMALL-based abstract machine (AMX) bytecode interpreter
+Description: Debugging symbols for libembryo
  Embryo is primarily a shared library that gives you an API to load
  and control interpreted programs compiled into an abstract machine
  bytecode that it understands.  This abstract (or virtual) machine is
@@ -65,7 +64,7 @@ Description: SMALL-based abstract machine (AMX) bytecode interpreter
 Package: libembryo-bin
 Section: core
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: SMALL compiler creating Embryo bytecode
  Embryo is primarily a shared library that gives you an API to load
  and control interpreted programs compiled into an abstract machine
