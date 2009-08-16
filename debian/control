@@ -62,7 +62,6 @@ Description: Debugging symbols for libembryo
  /usr/lib/debug and are automatically used by gdb.
 
 Package: libembryo-bin
-Section: core
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: SMALL compiler creating Embryo bytecode
