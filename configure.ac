@@ -1,7 +1,8 @@
 # get rid of that stupid cache mechanism
 rm -f config.cache
 
-AC_INIT([embryo], [0.9.9.062], [enlightenment-devel@lists.sourceforge.net])
+AC_INIT([embryo], [0.9.9.063], [enlightenment-devel@lists.sourceforge.net])
+release="ver-svn-05"
 AC_PREREQ([2.52])
 AC_CONFIG_SRCDIR([configure.ac])
 AC_CONFIG_MACRO_DIR([m4])
@@ -9,8 +10,9 @@ AC_CANONICAL_BUILD
 AC_CANONICAL_HOST
 AC_ISC_POSIX
 
-AM_INIT_AUTOMAKE(1.6 dist-bzip2)
-AM_CONFIG_HEADER(config.h)
+AM_INIT_AUTOMAKE([1.6 dist-bzip2])
+AM_CONFIG_HEADER([config.h])
+m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 AC_LIBTOOL_WIN32_DLL
 define([AC_LIBTOOL_LANG_CXX_CONFIG], [:])dnl
@@ -24,7 +26,6 @@ SNAP=`echo $PACKAGE_VERSION | awk -F. '{printf("%s", $4);}'`
 version_info=`expr $VMAJ + $VMIN`":$VMIC:$VMIN"
 AC_SUBST(version_info)
 
-release="ver-svn-03"
 case "$host_os" in
    mingw32ce* | cegcc*)
       ;;
@@ -54,6 +55,14 @@ EFL_CHECK_DOXYGEN([build_doc="yes"], [build_doc="no"])
 # pkg-config
 
 PKG_PROG_PKG_CONFIG
+
+# Check whether pkg-config supports Requires.private
+if $PKG_CONFIG --atleast-pkgconfig-version 0.22; then
+   pkgconfig_requires_private="Requires.private"
+else
+   pkgconfig_requires_private="Requires"
+fi
+AC_SUBST(pkgconfig_requires_private)
 
 
 ### Checks for libraries
