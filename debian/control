@@ -14,7 +14,7 @@ XCS-Cross-Mode: both
 Package: libembryo-dev
 Section: libdevel
 Architecture: any
-Depends: ${misc:Depends}, libembryo-svn-05 (= ${binary:Version})
+Depends: ${misc:Depends}, libembryo-svn-06 (= ${binary:Version})
 Description: Development files for libembryo0
  Embryo is primarily a shared library that gives you an API to load
  and control interpreted programs compiled into an abstract machine
@@ -24,7 +24,7 @@ Description: Development files for libembryo0
  .
  This packages contains headers and static libraries for Embryo.
 
-Package: libembryo-svn-05
+Package: libembryo-svn-06
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Suggests: libembryo-bin
@@ -48,7 +48,7 @@ Description: SMALL-based abstract machine (AMX) bytecode interpreter
 Package: libembryo-dbg
 Architecture: any
 Section: debug
-Depends: ${misc:Depends}, libembryo-svn-05 (= ${binary:Version})
+Depends: ${misc:Depends}, libembryo-svn-06 (= ${binary:Version})
 Priority: extra
 Description: Debugging symbols for libembryo
  Embryo is primarily a shared library that gives you an API to load
