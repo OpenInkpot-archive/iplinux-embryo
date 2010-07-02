@@ -31,7 +31,7 @@
 
 #include <assert.h>
 #include <stdio.h>
-#include <stdlib.h>		/* for _MAX_PATH */
+#include <limits.h>		/* for PATH_MAX */
 #include <string.h>
 
 #include "embryo_cc_sc.h"
@@ -776,6 +776,7 @@ expression(int *constant, cell * val, int *tag, int chkfuncresult)
    else
      {
 	*constant = FALSE;
+	*val = 0;
      }				/* if */
    if (tag != NULL)
       *tag = lval.tag;
@@ -1697,9 +1698,7 @@ primary(value * lval)
 
    if (matchtoken('('))
      {				/* sub-expression - (expression,...) */
-	/* FIXME: 64bit unsafe */
 	pushstk((stkitem) intest);
-	/* FIXME: 64bit unsafe */
 	pushstk((stkitem) sc_allowtags);
 
 	intest = 0;		/* no longer in "test" expression */

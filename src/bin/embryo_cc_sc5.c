@@ -33,11 +33,15 @@
 # include <config.h>
 #endif
 
-#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+
+#ifndef _MSC_VER
+# include <unistd.h>
+#endif
+
 #include "embryo_cc_sc.h"
 #include "embryo_cc_sc5.scp"
 
@@ -59,9 +63,8 @@ static int errstart;	/* line number at which the instruction started */
 int
 error(int number, ...)
 {
-   static char        *prefix[3] = { "error", "fatal error", "warning" };
    static int          lastline, lastfile, errorcount;
-   char               *msg, *pre;
+   char               *msg;
    va_list             argptr;
    char                string[1024];
    int start;
@@ -78,20 +81,17 @@ error(int number, ...)
    if (number < 100)
      {
 	msg = errmsg[number - 1];
-	pre = prefix[0];
 	errflag = TRUE;	/* set errflag (skip rest of erroneous expression) */
 	errnum++;
      }
    else if (number < 200)
      {
 	msg = fatalmsg[number - 100];
-	pre = prefix[1];
 	errnum++; /* a fatal error also counts as an error */
      }
    else
      {
 	msg = warnmsg[number - 200];
-	pre = prefix[2];
 	warnnum++;
      }
 
